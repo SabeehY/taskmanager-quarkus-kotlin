@@ -78,8 +78,7 @@ The project includes a GitHub Actions workflow (`ci.yml`) that:
    - Sets up JDK 21 (Temurin distribution)
    - Caches Maven dependencies
    - Builds and tests the application
-   - Uploads test results as artifacts
-   - Builds Docker image (only on main branch pushes)
+   - Builds Docker image
 
 ## Caching Implementation (Incomplete)
 
