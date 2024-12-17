@@ -57,11 +57,11 @@ java -jar target/quarkus-app/quarkus-run.jar
 ```bash
 # JVM Mode
 ./mvnw package
-docker build -f src/main/docker/Dockerfile.jvm -t taskmanager-api:latest .
+docker build -f src/main/docker/Dockerfile.jvm -t taskmanager:latest .
 
 # Native Mode (requires GraalVM)
 ./mvnw package -Dnative
-docker build -f src/main/docker/Dockerfile.native -t taskmanager-api:native .
+docker build -f src/main/docker/Dockerfile.native -t taskmanager:native .
 ```
 
 ## CI/CD Pipeline
