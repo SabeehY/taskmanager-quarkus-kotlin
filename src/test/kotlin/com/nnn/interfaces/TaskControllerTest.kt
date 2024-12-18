@@ -94,8 +94,8 @@ class TaskControllerTest {
             .body("isCompleted", `is`(true))
     }
 
-    // @Test
-    // @Order(5)
+    @Test
+    @Order(5)
     fun `test delete task`() {
         given()
             .`when`()
@@ -111,16 +111,16 @@ class TaskControllerTest {
             .statusCode(404)
     }
 
-    // @Test
+    @Test
     fun `test get task with invalid id returns 404`() {
         given()
             .`when`()
-            .get("/tasks/{id}", ObjectId())
+            .get("/tasks/{id}", ObjectId().toHexString())
             .then()
             .statusCode(404)
     }
 
-    // @Test
+    @Test
     fun `test update task with invalid id returns 404`() {
         val request = UpdateTaskRequest(
             title = "Updated Task",
@@ -131,7 +131,7 @@ class TaskControllerTest {
             .contentType(ContentType.JSON)
             .body(request)
             .`when`()
-            .put("/tasks/{id}", ObjectId())
+            .put("/tasks/{id}", ObjectId().toHexString())
             .then()
             .statusCode(404)
     }

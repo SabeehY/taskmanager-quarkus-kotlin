@@ -44,7 +44,7 @@ class TaskController(private val service: TaskService) {
     @DELETE
     @Path("/{id}")
     fun deleteTask(@PathParam("id") id: String): Response {
-        val deleted = service.deleteTask(id) ?: return Response.noContent().build()
-        return Response.status(Response.Status.NOT_FOUND).build()
+        return if (service.deleteTask(id)) Response.noContent().build()
+        else Response.status(Response.Status.NOT_FOUND).build() 
     }
 }
